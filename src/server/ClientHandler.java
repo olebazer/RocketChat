@@ -20,7 +20,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class ClientHandler implements Runnable {
-    private static ArrayList<ClientHandler> connections = new ArrayList<ClientHandler>();
+    private static ArrayList<ClientHandler> connections =
+        new ArrayList<ClientHandler>();
     private Socket client;
 
     ClientHandler(Socket client) {
@@ -37,12 +38,14 @@ public class ClientHandler implements Runnable {
     }
 
     public void send(String message) throws IOException {
-        PrintWriter printWriter = new PrintWriter(client.getOutputStream(), true);
+        PrintWriter printWriter = new PrintWriter(client.getOutputStream(),
+            true);
         printWriter.println(message);
     }
 
     public String receive() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        BufferedReader bufferedReader = new BufferedReader(
+            new InputStreamReader(client.getInputStream()));
         return bufferedReader.readLine();
     }
 

@@ -31,12 +31,14 @@ public class Client {
     }
 
     public void send(String message) throws IOException {
-        PrintWriter printWriter = new PrintWriter(client.getOutputStream(), true);
+        PrintWriter printWriter = new PrintWriter(client.getOutputStream(),
+            true);
         printWriter.println(message);
     }
 
     public String receive() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        BufferedReader bufferedReader = new BufferedReader(
+            new InputStreamReader(client.getInputStream()));
         return bufferedReader.readLine();
     }
 
