@@ -1,5 +1,17 @@
 package server;
 
+/*
+ * Bei jeder neuen Verbindung, die der Server eingeht,
+ * wird eine neue Instanz dieser Klasse erzeugt.
+ * Zu erst wird der Client nach einem Benutzernamen
+ * gefragt und es wird auf eine Antwort gewartet.
+ * Danach wird weiterhin auf Nachrichten des Clients
+ * gewartet, wobei diese immer an alle anderen
+ * verbundenen Clients weitergleitet wird. Entspricht
+ * eine Nachricht dem String "quit", wird die
+ * Verbindung aufgelöst.
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

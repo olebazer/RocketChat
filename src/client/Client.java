@@ -1,5 +1,18 @@
 package client;
 
+/*
+ * Diese Klasse erstellt einen Client-Socket, der
+ * sich durch die Methode connect() mit dem Server
+ * verbinden kann. Es wird auf die Frage des Servers
+ * nach dem Benutzernamen gewartet und mit Hilfe
+ * eines Scanners die Antwort bereitsgestellt. 
+ * Um gleichzeitiges Schreiben und Lesen von Nachrichten
+ * zu ermöglichen startet parallel ein anderer
+ * Thread. Dieser wartet auf eingehende Nachrichten
+ * und gibt diese aus. Der Haupt-Thread wartet 
+ * auf Eingabe und sendet diese an den Server.
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,6 +39,7 @@ public class Client {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));
         return bufferedReader.readLine();
     }
+
     public void connect() throws IOException {
         client = new Socket(ip, port);
         Scanner scanner = new Scanner(System.in);
