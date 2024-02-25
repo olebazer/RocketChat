@@ -8,8 +8,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class ClientHandler implements Runnable {
-    private static final ArrayList<ClientHandler> connections = new ArrayList<ClientHandler>();
-    private final Socket client;
+    private static ArrayList<ClientHandler> connections = new ArrayList<ClientHandler>();
+    private Socket client;
 
     ClientHandler(Socket client) {
         this.client = client;

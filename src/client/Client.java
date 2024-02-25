@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class Client {
     private Socket client;
-    private final String ip;
-    private final int port;
+    private String ip;
+    private int port;
 
     Client(String ip, int port) {
         this.ip = ip;
