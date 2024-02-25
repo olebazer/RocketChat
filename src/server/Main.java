@@ -8,7 +8,7 @@ public class Main {
             Server server = new Server(4545);
             server.serve();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 }

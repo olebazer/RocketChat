@@ -8,8 +8,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class ClientHandler implements Runnable {
-    private static ArrayList<ClientHandler> connections = new ArrayList<ClientHandler>();
-    private Socket client;
+    private static final ArrayList<ClientHandler> connections = new ArrayList<ClientHandler>();
+    private final Socket client;
 
     ClientHandler(Socket client) {
         this.client = client;
@@ -18,7 +18,9 @@ public class ClientHandler implements Runnable {
 
     public void broadcast(String message) throws IOException {
         for (ClientHandler connection : connections) {
-            connection.send(message);
+            if (connection != null) {
+                connection.send(message);
+            }
         }
     }
 
@@ -48,7 +50,7 @@ public class ClientHandler implements Runnable {
                 broadcast(username + ": " + message);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 }

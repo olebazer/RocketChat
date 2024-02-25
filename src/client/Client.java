@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class Client {
     private Socket client;
-    private String ip;
-    private int port;
+    private final String ip;
+    private final int port;
 
     Client(String ip, int port) {
         this.ip = ip;
@@ -43,7 +43,7 @@ public class Client {
                     System.out.println(message);
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println(e.getMessage());
             }
         });
         messageThread.start();

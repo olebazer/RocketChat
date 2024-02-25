@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    private ServerSocket server;
+    private final ServerSocket server;
 
     Server(int port) throws IOException {
         server = new ServerSocket(port);
